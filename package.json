@@ -1,0 +1,30 @@
+{
+  "name": "farhati-wedding-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "منصة فرحتي لإنشاء ومشاركة دعوات الزفاف الرقمية",
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c yellow,cyan \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "node --env-file-if-exists=.env --watch server/index.js",
+    "dev:web": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "test": "node --test",
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "check": "node --check server/index.js && node --check server/db.js && node --check server/templateArchive.js"
+  },
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "vite": "^6.0.7"
+  }
+}
